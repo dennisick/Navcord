@@ -22,8 +22,8 @@ module.exports = async (interaction) => {
             return;
         }
 
-        console.log("Discord Client ID " + interaction.user.id + " fetched UID from " + user.name);
-        interaction.reply(guildMember.user.username + "'s UID is " + profile.uid);
+        console.log("Discord Client ID " + interaction.user.id + " fetched UID from " + user.username);
+        interaction.reply(user.username + "'s UID is " + profile.uid);
     } catch (error) {
         console.error(error);
         interaction.reply('Something went wrong. Please contact an admin');
