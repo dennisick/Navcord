@@ -1,23 +1,19 @@
 const dbClient = require("../db/dbClient");
+const { uidChannels } = require('../../config.json');
 
 module.exports = async (interaction) => {
 
-    const name = interaction.options.getString("name");
-
-    const users = await interaction.guild.members.fetch({ query: name, limit: 1 });
-   
-    if (users.size < 1) {
-        interaction.reply('Could not find this member');
+    if (!uidChannels.includes(interaction.channelId)) {
+        interaction.reply('This command is not allowed in this channel!');
         return;
     }
 
-
-    const [guildMember] = users.values();
+    const user = interaction.options.getUser("member");
 
     try {
         const profile = await dbClient.genhsinToDiscord.findUnique({
             where: {
-                id: guildMember.user.id
+                id: user.id
             }
         });
 
@@ -26,7 +22,7 @@ module.exports = async (interaction) => {
             return;
         }
 
-        console.log("Discord Client ID " + interaction.user.id + " fetched UID from " + name);
+        console.log("Discord Client ID " + interaction.user.id + " fetched UID from " + user.name);
         interaction.reply(guildMember.user.username + "'s UID is " + profile.uid);
     } catch (error) {
         console.error(error);

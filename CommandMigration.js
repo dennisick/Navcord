@@ -7,15 +7,15 @@ const commands = [
 		.setName('setuid')
 		.setDescription('Saves your uid so members get to know your UID')
 		.addIntegerOption(option =>
-			option.setName('UID')
+			option.setName('uid')
 				  .setDescription('Your UID')
 				  .setRequired(true)),
 	new SlashCommandBuilder()
 		.setName('uid')
 		.setDescription('Get the UID of a member')
-		.addStringOption(option =>
-			option.setName('name')
-				  .setDescription('Name')
+		.addUserOption(option =>
+			option.setName('member')
+				  .setDescription('Member')
 				  .setRequired(true))
 ]
 	.map(command => command.toJSON());

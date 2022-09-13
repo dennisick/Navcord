@@ -1,9 +1,15 @@
 const dbClient = require("../db/dbClient");
+const { uidChannels } = require('../../config.json');
 
 module.exports = async (interaction) => {   
     
     const clientId = String(interaction.user.id);
     const uid = String(interaction.options.getInteger("uid"));
+
+    if (!uidChannels.includes(interaction.channelId)) {
+        interaction.reply('This command is not allowed in this channel!');
+        return;
+    }
 
     try {
         let profile = await dbClient.genhsinToDiscord.findUnique({
