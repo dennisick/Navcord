@@ -4,7 +4,7 @@ module.exports = (client) => {
             return;
         }
 
-        client.user.setStatus('Idle', 'searching for food');
+        client.user.setStatus('Idle');
 
         console.log(client.user.username + ' is online');
     });
