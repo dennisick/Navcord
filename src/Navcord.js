@@ -1,6 +1,6 @@
 const interactionCreate = require("./listeners/interactionCreate");
 const ready = require("./listeners/ready")
-const { Client, ActivityType, PresenceUpdateStatus } = require("discord.js");
+const { Client } = require("discord.js");
 const dbClient = require("./db/dbClient");
 const { token } = require("../config.json");
 
@@ -20,8 +20,6 @@ async function main() {
         //
     
         client.login(token);
-        client.user.setStatus(PresenceUpdateStatus.Idle, 'searching for food');
-        client.uset.
     } else {
         console.log("Token is undefined");
     }
