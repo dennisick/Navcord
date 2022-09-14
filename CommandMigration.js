@@ -5,7 +5,7 @@ const { clientId, guildId, token } = require('./config.json');
 const commands = [
 	new SlashCommandBuilder()
 		.setName('setuid')
-		.setDescription('Saves your uid so members get to know your UID')
+		.setDescription('Saves your UID')
 		.addIntegerOption(option =>
 			option.setName('uid')
 				  .setDescription('Your UID')
