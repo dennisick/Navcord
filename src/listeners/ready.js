@@ -8,10 +8,13 @@ module.exports = (client) => {
 
         client.user.setPresence({
             status: 'idle',
-            activity: {
-                name: 'searching for food',
-                type: 'PLAYING'
-            }
+            activities: [
+                {
+                    name: 'searching for food',
+                    type: 'PLAYING'
+                }
+            ],
+            shardId: 0
         })
 
         console.log(client.user.username + ' is online');
