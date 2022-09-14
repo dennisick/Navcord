@@ -5,7 +5,10 @@ module.exports = (client) => {
         }
 
         client.user.setPresence({
-            status: 'idle'
+            status: 'idle',
+            activity: {
+                name: 'searching for food'
+            }
         })
 
         console.log(client.user.username + ' is online');
