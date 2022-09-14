@@ -11,7 +11,7 @@ module.exports = (client) => {
             activities: [
                 {
                     name: 'searching for food',
-                    type: 'PLAYING'
+                    type: ActivityType.Playing
                 }
             ],
             shardId: 0
